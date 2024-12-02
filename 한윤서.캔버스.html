@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> 원 그리기_한윤서 </title>
+</head>
+<body>
+    <canvas id="MyCanvas" width="800" height="500"
+    style="border: 2px solid #cef"></canvas>
+    <script>
+        const canvas = document.getElementById("MyCanvas");
+        const ctx = canvas.getContext("2d");
+        function drawRandomCircle() {
+            let x = Math.random() * 800;
+            let y = Math.random() * 500;
+            let radius = Math.random() * 40 + 10;
+
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(0, 0, 255, 0.4)"
+            ctx.fill();
+        }
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 1; i < 30; i++)
+            drawRandomCircle();
+        }
+        setInterval(() => { draw() }, 1200);
+    </script>
+</body>
+</html>
